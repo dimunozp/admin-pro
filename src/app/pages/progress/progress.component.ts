@@ -1,32 +1,29 @@
 import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
+import {IncreaseComponent} from "../../components/incrementador/increase.component";
 
 @Component({
   selector: 'app-progress',
   standalone: true,
   imports: [
-    FormsModule
+    FormsModule,
+    IncreaseComponent
   ],
   templateUrl: './progress.component.html',
   styleUrls: ['./progress.component.css']
 })
 export class ProgressComponent {
 
-  progress: number = 50;
+  process1 : number = 25;
+  process2 : number = 35;
 
-  get getPercentage() {
-    return `${this.progress}%`;
+  get getProgress1(): string {
+    return `${this.process1}%`;
   }
 
-  changePercentage(value: number): number {
-
-    if(this.progress >= 100 && value >= 0)
-      return this.progress = 100;
-
-    if(this.progress <= 0 && value < 0)
-      return this.progress = 0;
-
-    return this.progress += value;
+  get getProgress2(): string {
+    return `${this.process2}%`;
   }
+
 
 }

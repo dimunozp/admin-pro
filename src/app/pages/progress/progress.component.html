@@ -7,7 +7,16 @@
           <div
             class="progress-bar bg-primary progress-bar-striped active"
             style="height:10px;"
-            [style.width]="getPercentage"
+            [style.width]="getProgress1"
+            role="progressbar">
+          </div>
+        </div>
+
+        <div class="progress m-t-20">
+          <div
+            class="progress-bar bg-info progress-bar-striped active"
+            style="height:10px;"
+            [style.width]="getProgress2"
             role="progressbar">
           </div>
         </div>
@@ -20,34 +29,7 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button
-              class="btn btn-primary"
-              (click)="changePercentage(-5)"
-              type="button">
-              <i class="fa fa-minus"></i>
-            </button>
-          </span>
-
-          <input
-            type="number"
-            class="form-control"
-            placeholder="Progreso"
-            [(ngModel)]="progress"
-            min="0"
-            max="100"
-          >
-
-          <span class="input-group-btn">
-            <button
-              class="btn btn-primary"
-              (click)="changePercentage(5)"
-              type="button">
-              <i class="fa fa-plus"></i>
-            </button>
-          </span>
-        </div>
+        <app-incrementador (changeValue)="process1 = $event" [value]="process1"/>
       </div>
     </div>
   </div>
@@ -55,7 +37,7 @@
   <div class="col-6">
     <div class="card">
       <div class="card-body">
-
+        <app-incrementador (changeValue)="process2 = $event" [value]="process2"/>
       </div>
     </div>
   </div>
